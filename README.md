@@ -68,11 +68,11 @@ class CategoryBackend < ApplicationBackend
 end
 ```
 
-### The #edit block
-Use the `edit`-block to configure which form fields to display on your resoure's edit page.
+### The #form block
+Use the `form`-block to configure which form fields to display on your resoure's edit page.
 ```ruby
 class CategoryBackend < ApplicationBackend
-  edit do
+  form do
     field :name
     field :description, type: :editor # WYSIWYG editor
     association :products
