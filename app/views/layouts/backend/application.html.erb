@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backend</title>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "backend/application", media: "all" %>
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- / Google font -->
+
+  <!-- TinyMCE editor -->
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <!-- / TinyMCE editor -->
+
+  <!-- Slim select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.1/slimselect.min.css" rel="stylesheet">
+  <!-- / Slim select -->
+</head>
+<body>
+  <header class="relative z-30">
+    <div class="relative bottom-0 left-0 z-30 hidden w-full h-16 md:block bg-gradient-to-r from-slate-500 via-slate-600 to-sky-500">
+      <div class="flex items-center justify-between w-full h-full px-3 mx-auto max-w-7xl">
+        <div class="relative flex items-center">
+          <a href="#" class="flex items-center text-sm text-blue-200 hover:underline">
+            <span class="hidden font-medium text-blue-100 xl:block">Welcome back,</span>
+            <span class="ml-1 font-normal">John Doe.</span>
+            <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+        </div>
+        <div class="w-auto flex items-center gap-x-10">
+          <%= link_to "← Back to website", main_app.try(:root_path), class: "text-white text-xs font-bold" %>
+          <a href="https://github.com/kiqr/backend" target="_blank" class="flex items-center h-8 px-3 text-sm font-medium text-white border border-white rounded-md cursor-pointer">
+            <svg class="w-7 h-8 h-full pr-1 pr-2.5 border-r text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+            <span class="py-1.5 pl-2.5">kiqr/backend</span>
+          </a>
+        </div>
+      </div>    
+    </div>
+    <div class="wrapper">
+      <div class="h-24 space-x-10 border-b-2 border-slate-200 flex items-center">
+        <%= link_to "Backend", root_path, class: "font-bold text-2xl text-slate-600 block" %>
+        <nav id="primary">
+          <%= backend_navbar_item "Dashboard", root_path %>
+          <% Backend.each do |backend| %>
+            <%= backend_navbar_item backend.model_name.pluralize, backend.full_path %>
+          <% end %>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="wrapper pt-8">
+
+      <!-- 
+        Notifications template
+
+        <div class="bg-sky-900 text-center py-4 lg:px-4 mb-8 rounded-lg">
+          <a href="#" class="p-2 bg-sky-800 items-center text-sky-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+            <span class="flex rounded-full bg-green-500 uppercase px-2 py-1 text-xs font-bold mr-3">Success</span>
+            <span class="font-semibold mr-2 text-left flex-auto">Get the coolest t-shirts from our brand new store.</span>
+            <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+          </a>
+        </div>
+      -->
+
+      <%= yield %>
+    </div>
+  </main>
+  <footer></footer>
+</body>
+</html>

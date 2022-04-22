@@ -1,0 +1,8 @@
+<%= form.association field.model_attribute, label: field.label, input_html: field.options[:input_html].merge({"id": "select-for-#{field.model_attribute}"}) %>
+<script type="text/javascript">
+  window.onload = function() {
+    new SlimSelect({
+      select: "#select-for-<%= field.model_attribute %>"
+    })
+  };
+</script>

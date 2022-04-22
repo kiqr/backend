@@ -1,0 +1,22 @@
+<%= form.input field.model_attribute, label: field.label, input_html: { class: "default-input #{field.model_attribute.to_s}" } %>
+
+<script>
+  tinymce.init({
+    selector: '.<%= field.model_attribute.to_s %>',
+    height: 400,
+    menubar: false,
+    plugins: [
+      'advlist autolink lists link image charmap preview anchor',
+      'searchreplace code fullscreen',
+      'insertdatetime media table paste code help wordcount'
+    ],
+    rel_list: [
+      { title: 'None', value: '' },
+      { title: 'nofollow', value: 'nofollow noopener' },
+      { title: 'sponsored', value: 'sponsored noopener' }
+    ],
+    toolbar: 'formatselect | ' +
+    ' bold italic underline removeformat | ' +
+    ' link | code fullscreen'
+  });
+</script>

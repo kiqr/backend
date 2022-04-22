@@ -1,0 +1,12 @@
+<section id="backend-<%= backend.model_name %>" class="bg-white rounded-lg shadow-xl">
+  <header class="flex items-center h-16 border-b border-slate-200 px-8 md:px-5">
+    <h1 class="font-bold text-lg">Create <%= backend.model_name %></h1>
+    <%= link_to "Back to #{backend.model_name.pluralize}", resources_path, class: "ml-auto button-header bg-slate-500" %>
+  </header>
+  <%= simple_form_for @resource, url: resources_path, html: { class: "resource-form" }, method: :post do |form| %>
+    <%= render "fields", form: form %>
+    <div class="p-8 text-center">
+      <%= form.submit class: "button-submit" %>
+    </div>
+  <% end %>
+</section>
