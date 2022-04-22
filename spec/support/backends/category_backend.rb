@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CategoryBackend < Backend::Base
+class CategoryBackend < Backend::Resource
   self.display_name_attribute = :name
 
   index do

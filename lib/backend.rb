@@ -12,8 +12,8 @@ require "trix"
 module Backend
   extend Dry::Configurable
 
-  autoload "Base", "backend/base"
   autoload "Column", "backend/column"
+  autoload "Resource", "backend/resource"
 
   module Dsl
     autoload "Index", "backend/dsl/index"
@@ -42,7 +42,7 @@ module Backend
       Rails.application.eager_load!
 
       # A list of all classes that has inherited from Backend::Base.
-      Backend::Base.descendants
+      Backend::Resource.descendants
     end
   end
 end

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Backend
-  describe Base do
+  describe Resource do
     context "when inherited from a subclass" do
       describe CategoryBackend do
         it { expect(described_class.model).to eq Category }

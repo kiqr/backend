@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Backend
-  class Base
+  class Resource
     extend ActiveSupport::DescendantsTracker
     # extend Backend::Fields
 
