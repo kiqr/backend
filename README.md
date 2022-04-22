@@ -9,13 +9,23 @@ An administration panel for Ruby on Rails.
 Installation
 ------------
 
-Add the following line to Gemfile:
+#### 1. Add the following line to your Gemfile:
 
 ```ruby
 gem "backend", github: "kiqr/backend" # Use development branch until first release.
 ```
 
 and run `bundle install` from your terminal to install it.
+
+#### 2. Link the stylesheet
+
+Add the backend stylesheet to your manifest file at `app/assets/config/manifest.js`:
+
+```sass
+//= link backend/application.css
+```
+
+#### 3. Setup the routes
 
 Add `backend` to your routes in `config/routes.rb`.
 
@@ -26,10 +36,11 @@ Rails.application.routes.draw do
 end
 ```
 
+After you've installed `Backend` follwing the instructions above, you should have some new routes enabled which can be used to access the backend. Confirm that the installation works by navigating to the Dashboard at `/backend` in your browser.
+
+
 Getting Started
 ---------------
-
-After you've installed `Backend` follwing the instructions above, you should have some new routes enabled which can be used to access the backend. Confirm that the installation works by navigating to the Dashboard at `/backend` in your browser.
 
 Let's create a backend for the model `Category`. You can generate a pre-configured backend with the `backend` generator. Replace `MODEL` with the class name used for the model to create a `Backend` for that model (if one does not exist) and configure it with the default attributes: 
 
