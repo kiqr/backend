@@ -26,7 +26,7 @@ module Backend
     autoload "Editor", "backend/fields/editor"
   end
 
-  setting :route_path, "backend" # Default route scope for backend routes.
+  setting :route_path, default: "backend" # Default route scope for backend routes.
 
   class << self
     # Iterate through all backend classes.
