@@ -26,6 +26,10 @@ module Backend
     autoload "Editor", "backend/fields/editor"
   end
 
+  module Generators
+    autoload "ResourceGenerator", "backend/generators/resource_generator"
+  end
+
   setting :route_path, default: "backend" # Default route scope for backend routes.
 
   class << self
