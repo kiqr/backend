@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
     "rubygems_mfa_required" => "true"
   }
 
-  spec.add_dependency "dry-configurable", ">= 0.11", "< 0.15"
+  spec.add_dependency "dry-configurable", ">= 0.11", "< 0.16"
   spec.add_dependency "pagy", "~> 5.10"
   spec.add_dependency "simple_form", "~> 5.1"
   spec.add_dependency "trix-rails", "~> 2.4"
